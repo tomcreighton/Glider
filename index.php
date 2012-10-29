@@ -107,13 +107,13 @@ wp_enqueue_script( 'jquery-ui-effects-slide', 'http://jquery-ui.googlecode.com/s
 		
 		function loadpost() {
 			
-			var perma = $(this).attr("rel");
-			var postid = $(this).attr("id");
-			var postitle = $(this).attr("title");
+			var perma = $(this).attr("rel"),
+				postid = $(this).attr("id"),
+				postitle = $(this).attr("title");
 			
-			$('#'+postid).parent().parent().addClass('loader');
+			$(this).parent().parent().addClass('loader');
 			
-			$("#post").load(''+perma+' #post', function() {
+			$("#post").load(perma + ' #post', function() {
 				$('#gopost').fadeOut(300);
 				$('#archive').hide('slide', {direction: 'right'}, 600, function() {
 					$("#post").scrollTop(0);
@@ -121,6 +121,7 @@ wp_enqueue_script( 'jquery-ui-effects-slide', 'http://jquery-ui.googlecode.com/s
 					$('#post').show('slide', {direction: 'left'}, 600, function() {
 						$('#'+postid).parent().parent().removeClass('loader');
 						window.location.hash = "/"+postitle;
+						$("title").html(postitle);
 						twttr.widgets.load()
 					});
 				});
@@ -136,7 +137,7 @@ wp_enqueue_script( 'jquery-ui-effects-slide', 'http://jquery-ui.googlecode.com/s
 		
 
 						
-	});
+	})(jQuery);
 </script>
 <?php wp_footer(); ?>
 
