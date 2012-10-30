@@ -68,7 +68,7 @@ wp_enqueue_script( 'jquery-ui-effects-slide', 'http://jquery-ui.googlecode.com/s
 			
 			<ul>
 				<?php 
-				$my_query = new WP_Query( array( "nopaging"=>true,"post__not_in" => array( $do_not_duplicate  ) ); 
+				$my_query = new WP_Query( array( "nopaging"=>true,"post__not_in" => array( $do_not_duplicate  ) )); 
 				while ($my_query->have_posts()) : 
 					$my_query->the_post();
 				?>
