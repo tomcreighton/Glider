@@ -57,6 +57,7 @@ wp_enqueue_script( 'jquery-ui-effects-slide', 'http://jquery-ui.googlecode.com/s
 		</div>
 		
 		<div id="footer">
+			
 			Using the <a href="http://tomcreighton.com/glider-theme">Glider</a> theme.
 		</div>
 												
@@ -85,60 +86,105 @@ wp_enqueue_script( 'jquery-ui-effects-slide', 'http://jquery-ui.googlecode.com/s
 
 
 <script>
-	jQuery(function($) {
-		
+	$(document).ready(function () {
+		// Cached DOM references
+		var $goarchive = $('#goarchive'),
+			$gopost = $('#gopost'),
+			$archive = $('#archive'),
+			$post = $('#post');
+
 		function goarchive() {
-			$('#goarchive').fadeOut(300);
-			$('#post').hide('slide', {direction: 'left'}, 600, function() {
-				$("#archive").scrollTop(0);
-				$('#archive').show('slide', {direction: 'right'}, 600);
-				$('#gopost').fadeIn(300);
+			$goarchive.fadeOut(300);
+			$post.hide('slide', {
+				direction: 'left'
+			}, 600, function () {
+				$archive.scrollTop(0);
+				$archive.show('slide', {
+					direction: 'right'
+				}, 600);
+				$gopost.fadeIn(300);
 			});
 		};
-		
+
 		function gopost() {
-			$('#gopost').fadeOut(300);
-			$('#archive').hide('slide', {direction: 'right'}, 600, function() {
-				$("#post").scrollTop(0);
-				$('#post').show('slide', {direction: 'left'}, 600);
-				$('#goarchive').fadeIn(300);
+			$gopost.fadeOut(300);
+			$archive.hide('slide', {
+				direction: 'right'
+			}, 600, function () {
+				$post.scrollTop(0);
+				$post.show('slide', {
+					direction: 'left'
+				}, 600);
+				$goarchive.fadeIn(300);
 			});
 		};
-		
+
 		function loadpost() {
-			
-			var perma = $(this).attr("rel"),
-				postid = $(this).attr("id"),
-				postitle = $(this).attr("title");
-			
+
+			var perma = $(this).attr('rel'),
+				postid = $(this).attr('id'),
+				postitle = $(this).attr('title');
+
 			$(this).parent().parent().addClass('loader');
-			
-			$("#post").load(perma + ' #post', function() {
-				$('#gopost').fadeOut(300);
-				$('#archive').hide('slide', {direction: 'right'}, 600, function() {
-					$("#post").scrollTop(0);
-					$('#goarchive').fadeIn(300);
-					$('#post').show('slide', {direction: 'left'}, 600, function() {
-						$('#'+postid).parent().parent().removeClass('loader');
-						window.location.hash = "/"+postitle;
-						$("title").html(postitle);
-						twttr.widgets.load()
+
+			$post.load(perma + ' #post', function () {
+				$gopost.fadeOut(300);
+				$archive.hide('slide', {
+					direction: 'right'
+				}, 600, function () {
+					$post.scrollTop(0);
+					$goarchive.fadeIn(300);
+					$post.show('slide', {
+						direction: 'left'
+					}, 600, function () {
+						$('#' + postid).parent().parent().removeClass('loader');
+						window.location.hash = '/' + postitle;
+						$('title').html(postitle);
+						if (typeof twttr != 'undefined') {
+							twttr.widgets.load()
+						}
 					});
 				});
-				
 			});
 		}
-		
-		$('#goarchive').live("click", goarchive);
-		
-		$('#gopost').live("click", gopost);
-		
-		$("#archive a").live("click", loadpost);
-		
 
-						
-	})(jQuery);
+		$goarchive.live('click', goarchive);
+
+		$gopost.live('click', gopost);
+
+		$archive.find('a').live('click', loadpost);
+
+		/**
+		 * Right/Left Arrow Key Navigation
+		 * Easily toggle between post and archive view.
+		 */
+		var isLeftArrow = false;
+		var isRightArrow = false;
+		$(document).keydown(function keydownCallback(ev) {
+
+			isLeftArrow = ev.keyCode === 37 ? true : false;
+			isRightArrow = ev.keyCode === 39 ? true : false;
+
+			if (isLeftArrow || isRightArrow) {
+				ev.preventDefault();
+			}
+
+			// Left arrow key
+			if (isLeftArrow && $gopost.is(':visible')) {
+				gopost();
+			}
+
+			// Right arrow key
+			if (isRightArrow && $goarchive.is(':visible')) {
+				goarchive();
+			}
+
+			return false;
+		});
+	});
+
 </script>
+
 <?php wp_footer(); ?>
 
 </body>
