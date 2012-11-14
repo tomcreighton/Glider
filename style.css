@@ -66,7 +66,7 @@ blockquote {
 background: #484B52 url(http://new.hailang.me/wp-content/themes/Glider/green-black-side.gif);
 background-position:; 
 background-repeat:repeat-y; 
-margin: 0 20px; 
+margin: 0 0px; 
 padding: 20px 20px 20px 50px; 
 color:#C7CACF; 
 }
@@ -106,7 +106,7 @@ h1 {
 /* Added By Hai Lang */
 h2 {
     color: #DF3A01;
-	margin: 1.8em 0 1em;
+	margin: 1em 0 1em;
 	padding: 0 0 0 20px;
 	font-size: 2em;
 	font-weight: normal;
