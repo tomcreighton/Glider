@@ -48,8 +48,8 @@ ul#content > li {
 }
 
 .content {
-	width: 50%;
-	max-width: 680px;
+	width: 70%;
+	max-width: 720px;
 	padding: 60px 0;
 	margin: 0 auto;
 }
@@ -91,7 +91,7 @@ pre {
     border: 1px solid #888;
     max-height: 600px;
     overflow: auto;
-    background-color: #EEE;
+    background-color: #DCDCD8;
 }
 
 h1 {
