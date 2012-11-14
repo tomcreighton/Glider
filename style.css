@@ -88,6 +88,7 @@ color:#C7CACF;
 }*/
 
 pre {
+    border: 1px solid #888;
     max-height: 600px;
     overflow: auto;
     background-color: #EEE;
