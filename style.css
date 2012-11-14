@@ -79,11 +79,18 @@ color:#C7CACF;
 	margin: 0 0 18px 0;
 }
 
-pre {
+/* Commented For Code Styling */
+/*pre {
 	font-size: 18px;
 	margin: 0 0 18px 0;
 	font-family: "Courier New", Courier, monospace;
 	white-space: pre-line;	
+}*/
+
+pre {
+    max-height: 600px;
+    overflow: auto;
+    background-color: #484B52;
 }
 
 h1 {
