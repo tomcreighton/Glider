@@ -146,11 +146,11 @@ wp_enqueue_script( 'jquery-ui-effects-slide', 'http://jquery-ui.googlecode.com/s
 			});
 		}
 
-		$goarchive.live('click', goarchive);
+		$goarchive.on('click',$goarchive,goarchive);
 
-		$gopost.live('click', gopost);
+		$gopost.on('click',$gopost,gopost);
 
-		$archive.find('a').live('click', loadpost);
+		$archive.find('a').on('click',$archive.find('a'),loadpost);
 
 		
 		/* arrow key navigation */
