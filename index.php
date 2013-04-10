@@ -39,47 +39,47 @@ wp_enqueue_script( 'jquery-ui-effects-slide', 'http://jquery-ui.googlecode.com/s
 
 <ul id="content">
 	<li id="post">
-		
+
 		<div class="content">
-			
+
 			<?php the_post(); $do_not_duplicate = get_the_ID(); ?>
-				
+
 				<p id="hello">
-					 <?php echo get_bloginfo('description'); ?> This blog post was published on <?php the_time('F j Y') ?>. <a href="<?php the_permalink(); ?>">&sect;</a> 
+					 <?php echo get_bloginfo('description'); ?> This blog post was published on <?php the_time('F j Y') ?>. <a href="<?php the_permalink(); ?>">&sect;</a>
 				</p>
-			
-			
+
+
 				<h1><?php the_title(); ?></h1>
-							
+
 				<?php the_content(); ?>
-			
+
 		</div>
-		
+
 		<div id="footer">
-			
+
 			Using the <a href="http://tomcreighton.com/glider-theme">Glider</a> theme.
 		</div>
-												
+
 	</li>
-	
+
 	<li id="archive">
-		
+
 		<div class="content">
-			
+
 			<ul>
-				<?php 
-				$my_query = new WP_Query( array( "nopaging"=>true ) ); 
-				while ($my_query->have_posts()) : 
+				<?php
+				$my_query = new WP_Query( array( "nopaging"=>true ) );
+				while ($my_query->have_posts()) :
 					$my_query->the_post();
 				?>
-					<li><h2><a rel="<? the_permalink(); ?>" id="<? the_id(); ?>" title="<?php echo( basename( get_permalink() ) ); ?>"><?php the_title(); ?></a></h2> <span><?php the_time('F j Y') ?></span></li>
+					<li><h2><a rel="<?php the_permalink(); ?>" id="<?php the_id(); ?>" title="<?php echo( basename( get_permalink() ) ); ?>"><?php the_title(); ?></a></h2> <span><?php the_time('F j Y') ?></span></li>
 				<?php endwhile; wp_reset_postdata(); ?>
 			</ul>
-			
+
 		</div>
-												
+
 	</li>
-	
+
 </ul>
 
 
@@ -152,17 +152,17 @@ wp_enqueue_script( 'jquery-ui-effects-slide', 'http://jquery-ui.googlecode.com/s
 
 		$archive.find('a').on('click',$archive.find('a'),loadpost);
 
-		
+
 		/* arrow key navigation */
-		
+
 		$(document).keydown(function(ev) {
 			if(ev.which === 39) {
 				if ( $post.is(':visible') ) {
 					goarchive();
-				}				
+				}
 				return false;
 			}
-			
+
 			if(ev.which === 37) {
 				if ( $archive.is(':visible') ) {
 					gopost();
@@ -170,8 +170,8 @@ wp_enqueue_script( 'jquery-ui-effects-slide', 'http://jquery-ui.googlecode.com/s
 				return false;
 			}
 		});
-		
-		
+
+
 	});
 
 </script>
