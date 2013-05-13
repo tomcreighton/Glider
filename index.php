@@ -57,7 +57,7 @@ wp_enqueue_script( 'jquery-ui-effects-slide', 'http://jquery-ui.googlecode.com/s
 
 		<div id="footer">
 
-			Using the <a href="http://tomcreighton.com/glider-theme">Glider</a> theme.
+			Using the <a href="https://github.com/tomcreighton/Glider">Glider</a> theme.
 		</div>
 
 	</li>

@@ -1,9 +1,9 @@
 /*
 Theme Name: Glider
-Description: A minimal, responsive, text-focused theme for Wordpress
+Description: A minimal, quasi-responsive, text-focused theme for Wordpress
 Author: Tom Creighton
 Author URI: http://tomcreighton.com
-Version: 1.3
+Version: 1.5
 */
 
 
@@ -56,71 +56,51 @@ ul#content > li {
 
 p {
 	font-size: 18px;
-	line-height: 36px;
+	line-height: 30px;
 	padding: 0;
-	margin: 0 0 18px 0;
+	margin: 0 0 22px 0;
 }
 
-/* Added By Hai Lang */
-blockquote {
-background: #484B52 url(http://new.hailang.me/wp-content/themes/Glider/green-black-side.gif);
-background-position:; 
-background-repeat:repeat-y; 
-margin: 0 0px; 
-padding: 20px 20px 20px 50px; 
-color:#C7CACF; 
-}
-/*******************/
 
 #post ol, #post ul {
 	font-size: 18px;
-	line-height: 36px;
+	line-height: 30px;
 	padding: 0 0 0 18px;
-	margin: 0 0 18px 0;
+	margin: 0 0 22px 0;
 }
-
-/* Commented For Code Styling */
-/*pre {
-	font-size: 18px;
-	margin: 0 0 18px 0;
-	font-family: "Courier New", Courier, monospace;
-	white-space: pre-line;	
-}*/
 
 pre {
-    border: 1px solid #888;
-    max-height: 600px;
-    overflow: auto;
-    background-color: #DCDCD8;
+	font-size: 18px;
+	line-height: 22px;
+	margin: 0 0 22px 0;
+	font-family: "Courier New", Courier, monospace;
+	white-space: pre-line;	
 }
+
 
 h1 {
 	font-weight: normal;
 	text-align: center;
-	font-size: 56px;
-	line-height: 56px;
+	font-size: 66px;
+	line-height: 66px;
 	padding: 0 20px;
 	margin: 0 0 36px 0;
 }
-/* Commented for heading styling */
-/*h2 {
-	font-weight: normal;
+
+
+h2 {
+	font-weight: bold;
 	font-size: 24px;
 	line-height: 24px;
-	padding: 0;
-	margin: 0 0 4px 0;
-}*/
-
-/* Added By Hai Lang */
-h2 {
-    color: #DF3A01;
-	margin: 1em 0 1em;
-	padding: 0 0 0 20px;
-	font-size: 2em;
-	font-weight: normal;
-	background: #eeeedd url(http://new.hailang.me/wp-content/themes/Glider/heading.png);
+	padding: 11px 0 0 0;
+	margin: 0 0 18px 0;
 }
-/*********************/
+
+blockquote {
+	border-left: 2px solid rgba(0,0,0,0.1);
+	padding: 0 0 0 18px;
+	margin: 0 0 22px 0;
+}
 
 .shift {
 	color: #222;
