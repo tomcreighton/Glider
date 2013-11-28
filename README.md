@@ -10,3 +10,6 @@ This theme is ideal for people (like myself) who write fairly infrequently, as *
 When a post is loaded, the post-slug is added to the URL as a hash. The theme checks to see if a hash is present when URLs are loaded, if so, it loads the correct/requested post via normal permalink resolution. The description in the header block, above the post, uses Wordpress' built-in description, editable in Settings > General.
 
 Coming soon: more customization options via the Wordpress backend (including colour, typography, etc.) and a more fully-thought-out responsive design.
+
+The theme currently looks like this:
+![alt text](https://github.com/tomcreighton/Glider/blob/master/screenshot.png "Theme appearance")
