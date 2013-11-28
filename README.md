@@ -12,4 +12,5 @@ When a post is loaded, the post-slug is added to the URL as a hash. The theme ch
 Coming soon: more customization options via the Wordpress backend (including colour, typography, etc.) and a more fully-thought-out responsive design.
 
 The theme currently looks like this:
-![alt text](https://github.com/tomcreighton/Glider/blob/master/screenshot.png "Theme appearance")
+
+![alt text](https://raw.github.com/tomcreighton/Glider/master/screenshot.png "Theme appearance")
