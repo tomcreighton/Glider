@@ -14,4 +14,15 @@ function register_my_menus()
 
 add_action( 'init', 'register_my_menus' );
 
+function glider_widgets_init() {
+
+	register_sidebar( array(
+		'name' => 'Footer',
+		'id' => 'footer',
+		'before_widget' => '<div>',
+		'after_widget' => '</div>',
+	) );
+}
+add_action( 'widgets_init', 'glider_widgets_init' );
+
 ?>

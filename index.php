@@ -45,7 +45,7 @@
 		</div>
 
 		<div id="footer">
-			Using the <a href="https://github.com/tomcreighton/Glider">Glider</a> theme.
+			<?php if ( dynamic_sidebar('footer') ) : else : endif; ?>
 		</div>
 
 	</li>
