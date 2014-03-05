@@ -4,18 +4,7 @@
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <title><?php echo get_bloginfo('name'); ?></title>
 
-<?php
-wp_deregister_script( 'jquery' );
-wp_enqueue_script( 'jquery', 'http://code.jquery.com/jquery-latest.js' );
-
-// Add the effects
-wp_enqueue_script( 'jquery-ui-effects-core', 'http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.core.js', array( 'jquery' ) );
-wp_enqueue_script( 'jquery-ui-effects-slide', 'http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.slide.js', array( 'jquery', 'jquery-ui-effects-core' ) );
-
-?>
-
 <link href='http://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
-
 
 
 <link href="<?php echo get_stylesheet_uri(); ?>" rel="stylesheet" type="text/css" />
@@ -41,23 +30,22 @@ wp_enqueue_script( 'jquery-ui-effects-slide', 'http://jquery-ui.googlecode.com/s
 	<li id="post">
 
 		<div class="content">
+            <?php the_post(); $do_not_duplicate = get_the_ID(); ?>
+            <!-- Top navigation bar -->
+            <div id="hello">
+                <nav>
+                    <?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
+                </nav>
+            </div>
 
-			<?php the_post(); $do_not_duplicate = get_the_ID(); ?>
-
-				<p id="hello">
-					 <?php echo get_bloginfo('description'); ?> This blog post was published on <?php the_time('F j Y') ?>. <a href="<?php the_permalink(); ?>">&sect;</a>
-				</p>
-
-
-				<h1><?php the_title(); ?></h1>
-
-				<?php the_content(); ?>
-
+            <h1><?php the_title(); ?></h1>
+            <h3 class="subtitle"><?php echo get_bloginfo('description'); ?></h3>
+            
+            <?php the_content(); ?>
 		</div>
 
 		<div id="footer">
-
-			Using the <a href="https://github.com/tomcreighton/Glider">Glider</a> theme.
+			<?php if ( dynamic_sidebar('footer') ) : else : endif; ?>
 		</div>
 
 	</li>
